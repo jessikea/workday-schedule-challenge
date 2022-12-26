@@ -2,6 +2,30 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+
+  var date = $("#currrentDay");
+  var hours = $(".container-lg"); //holds each hour's ids
+  var timeBlock = $(".time-block");
+  var presentTime = parseInt(dayjs().format("H"));
+console.log (presentTime);
+  function checkTime() {
+
+    $(timeBlock).each(function () {
+      if (presentTime == (this.id.split("hour-")[1])) { 
+        $(this).addClass("present")//if the condition is true, then the appropriate class is added to "this" time block
+      }
+      if (presentTime < (this.id.split("hour-")[1])) {
+        $(this).addClass("future")
+      }
+      if (presentTime > (this.id.split("hour-")[1])) {
+        $(this).addClass("past")
+      } //console.log((nowhr), parseInt(this.id.split("hour-")[1])); logs current hour as an integer and the hour id as an integer
+    }) 
+  }; 
+
+
+
+
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
     // local storage. HINT: What does `this` reference in the click listener
