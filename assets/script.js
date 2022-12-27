@@ -21,7 +21,7 @@ $(function () {
 
     $(timeBlock).each(function () {
 
-      // splitting the hour-# id makes it into an array of strings. The hour is indexed at [1] and is then compared to the current time
+      // splitting the hour-# id makes it into an array of strings. The # is indexed at [1] and is then compared to the current time
       if (currentTime == (this.id.split("hour-")[1])) { 
         $(this).addClass("present") //class of present is added if current time and split hour are the same
       }
@@ -41,7 +41,7 @@ $(function () {
 // TODO: Add code to display the current date in the header of the page.
 //displaying date
   function dateDisplayed() {
-    var currentDate = dayjs().format("dddd, MMMM DD"); //displays format of day of week, month, day
+    var currentDate = dayjs().format("dddd, MMMM DD"); //displays format of day of week, month day
     currentDay.text(currentDate); //puts text in the currentDay text
     checkTime() //checks time hour on schedule;
   };
